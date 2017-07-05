@@ -1,0 +1,9 @@
+<resources>
+	<string name="app_name">VMDigital</string>
+
+	<string name="navigation_drawer_open">Open navigation drawer</string>
+	<string name="navigation_drawer_close">Close navigation drawer</string>
+
+	<string name="action_settings">Settings</string>
+	<string name="api_key">c4a63b39224b473d9517133d96d39edc</string>
+</resources>
