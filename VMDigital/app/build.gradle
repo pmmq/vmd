@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.neenbedankt.android-apt'
 android {
 	compileSdkVersion 25
 	buildToolsVersion "25.0.3"
@@ -16,11 +15,11 @@ android {
 			minifyEnabled false
 			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 			buildConfigField "String","API_KEY" , "\"c4a63b39224b473d9517133d96d39edcs\""
-			buildConfigField 'String',"API_END_POINT", "\"https://newsapi.org/v1\""
+			buildConfigField 'String',"API_END_POINT", "\"https://newsapi.org/v1/\""
 		}
 		debug{
 			buildConfigField "String","API_KEY" , "\"c4a63b39224b473d9517133d96d39edcs\""
-			buildConfigField 'String',"API_END_POINT", "\"https://newsapi.org/v1\""
+			buildConfigField 'String',"API_END_POINT", "\"https://newsapi.org/v1/\""
 		}
 
 	}
@@ -35,12 +34,15 @@ dependencies {
 		exclude group: 'com.android.support', module: 'support-annotations'
 	})
 	compile 'com.android.support:appcompat-v7:25.3.1'
+	compile 'com.android.support:support-v4:25.3.1'
+	compile 'com.android.support:recyclerview-v7:25.3.1'
 	compile 'com.android.support:design:25.3.1'
 	compile 'com.android.support.constraint:constraint-layout:1.0.2'
 	testCompile 'junit:junit:4.12'
 
 	// dagger 2
-	apt 'com.google.dagger:dagger-compiler:2.7'
+	annotationProcessor 'com.google.dagger:dagger-compiler:2.7'
+	provided 'javax.annotation:jsr250-api:1.0'
 	compile 'com.google.dagger:dagger:2.7'
 	// retrofit
 	compile 'com.squareup.retrofit2:retrofit:2.3.0'

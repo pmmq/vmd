@@ -1,9 +1,9 @@
-package assignment.vm.com.vmdigital.applications.modules;
+package vm.com.vmdigital.applications.modules;
 
 import javax.inject.Singleton;
 
-import assignment.vm.com.vmdigital.applications.VMApplication;
-import assignment.vm.com.vmdigital.applications.VMManager;
+import vm.com.vmdigital.applications.VMApplication;
+import vm.com.vmdigital.applications.VMManager;
 import dagger.Module;
 import dagger.Provides;
 import org.greenrobot.eventbus.EventBus;
@@ -29,7 +29,7 @@ public class ApplicationModule {
 	
 	@Provides
 	@Singleton
-	VMManager providesVMManager(){
-		return VMManager.getInstance();
+	VMManager providesVMManager(VMApplication pVMApplication, EventBus pEventBus){
+		return VMManager.getInstance(pVMApplication,pEventBus);
 	}
 }

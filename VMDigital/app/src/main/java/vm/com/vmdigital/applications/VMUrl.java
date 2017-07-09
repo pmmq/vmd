@@ -1,4 +1,4 @@
-package assignment.vm.com.vmdigital.applications;
+package vm.com.vmdigital.applications;
 
 public class VMUrl {
 	

@@ -1,10 +1,10 @@
-package assignment.vm.com.vmdigital.applications.modules;
+package vm.com.vmdigital.applications.modules;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import javax.inject.Singleton;
-import assignment.vm.com.vmdigital.BuildConfig;
-import assignment.vm.com.vmdigital.applications.VMService;
+import vm.com.vmdigital.BuildConfig;
+import vm.com.vmdigital.applications.VMService;
 import com.elvishew.xlog.XLog;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -44,8 +44,12 @@ public class ServiceModule {
 				XLog.d(message);
 			}
 		});
-		return new OkHttpClient.Builder().connectTimeout(60, TimeUnit.SECONDS).readTimeout(60, TimeUnit.SECONDS)
-				.addInterceptor(new RequestInterceptor()).addInterceptor(loggingInterceptor).build();
+		loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+		return new OkHttpClient.Builder()
+				.connectTimeout(60, TimeUnit.SECONDS).readTimeout(60, TimeUnit.SECONDS)
+				.addInterceptor(new RequestInterceptor())
+				.addInterceptor(loggingInterceptor)
+				.build();
 	}
 	
 	private class RequestInterceptor implements okhttp3.Interceptor {
