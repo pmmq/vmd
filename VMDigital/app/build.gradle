@@ -18,7 +18,7 @@ android {
 			buildConfigField 'String',"API_END_POINT", "\"https://newsapi.org/v1/\""
 		}
 		debug{
-			buildConfigField "String","API_KEY" , "\"c4a63b39224b473d9517133d96d39edcs\""
+			buildConfigField "String","API_KEY" , "\"c4a63b39224b473d9517133d96d39edc\""
 			buildConfigField 'String',"API_END_POINT", "\"https://newsapi.org/v1/\""
 		}
 
@@ -61,4 +61,7 @@ dependencies {
 
 	//eventbus
 	compile 'org.greenrobot:eventbus:3.0.0'
+
+	// glide
+	compile 'com.github.bumptech.glide:glide:4.0.0-RC1'
 }

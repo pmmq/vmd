@@ -1,19 +1,14 @@
 package vm.com.vmdigital.applications.bases;
 
-import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 
 public abstract class VMFragment extends Fragment {
-	
-	@Override
-	public void onSaveInstanceState(final Bundle outState) {
-		super.onSaveInstanceState(outState);
+
+	protected void attachFragment(Fragment fragment, int layout) {
+		FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
+		transaction.addToBackStack(fragment.getClass().getName());
+		transaction.replace(layout, fragment , fragment.getClass().getName());
+		transaction.commit();
 	}
-	
-	@Override
-	public void onViewStateRestored(@Nullable final Bundle savedInstanceState) {
-		super.onViewStateRestored(savedInstanceState);
-	}
-	
 }

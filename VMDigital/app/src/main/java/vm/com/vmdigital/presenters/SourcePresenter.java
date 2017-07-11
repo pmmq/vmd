@@ -27,7 +27,7 @@ public class SourcePresenter implements SourceContract.Presenter{
 	}
 	
 	@Override
-	public void fatchSource() {
+	public void fetchSource() {
 		mView.onLoading(true);
 		Call<ResponseSource> call = mService.getSource("","","");
 		call.enqueue(new Callback<ResponseSource>() {
@@ -35,6 +35,10 @@ public class SourcePresenter implements SourceContract.Presenter{
 			public void onResponse(final Call<ResponseSource> call, final Response<ResponseSource> response) {
 				if(mView!=null){
 					mView.onLoading(false);
+					if(response.code() == 400){
+						mView.onSourceFetched(null);
+						return;
+					}
 					if(response.body().getStatus() == ResponseSource.Status.OK){
 						mView.onSourceFetched(response.body().getSourceList());
 					}else if(response.body().getStatus() == ResponseSource.Status.ERROR){

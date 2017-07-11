@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="vm.com.vmdigital.R" />
+
+        <variable
+            name="article"
+            type="vm.com.vmdigital.models.Article"/>
+
+        <variable
+            name="adapter"
+            type="vm.com.vmdigital.adapters.ArticleAdapter"/>
+
+        <variable
+            name="glide"
+            type="com.bumptech.glide.Glide" />
+
+        <variable
+            name="position"
+            type="Integer"/>
+
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:clickable="true"
+                  android:background="@{adapter.getColor(position)}"
+                  android:onClick="@{(v) -> adapter.onSelect(v, article)}"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  android:padding="10dp">
+
+        <!--header-->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_author"
+                android:textAppearance="@style/VmDigitalTheme.TextAppearance.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{article.author}"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_published_at"
+                android:textAppearance="@style/VmDigitalTheme.TextAppearance.Caption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{article.getPublishedAtString()}"/>
+        </LinearLayout>
+
+        <!--content-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_title"
+                android:textAppearance="@style/VmDigitalTheme.TextAppearance.Body1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{article.title}"/>
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/tv_img"
+                android:scaleType="centerCrop"
+                app:imageUrl="@{article.urlToImage}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:textAppearance="@style/VmDigitalTheme.TextAppearance.Body2"
+                android:id="@+id/tv_descripton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{article.description}"/>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

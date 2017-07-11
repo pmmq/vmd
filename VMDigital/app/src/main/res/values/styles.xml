@@ -16,4 +16,20 @@
 	<style name="VmDigitalTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 	<style name="VmDigitalTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+	<style name="VmDigitalTheme.TextAppearance" parent="TextAppearance.AppCompat"></style>
+	<style name="VmDigitalTheme.TextAppearance.Body1" parent="TextAppearance.AppCompat.Body1"></style>
+	<style name="VmDigitalTheme.TextAppearance.Body2" parent="TextAppearance.AppCompat.Body2"></style>
+	<style name="VmDigitalTheme.TextAppearance.Button" parent="TextAppearance.AppCompat.Button"></style>
+	<style name="VmDigitalTheme.TextAppearance.Caption" parent="TextAppearance.AppCompat.Caption"></style>
+	<style name="VmDigitalTheme.TextAppearance.Display1" parent="TextAppearance.AppCompat.Display1"></style>
+	<style name="VmDigitalTheme.TextAppearance.Display2" parent="TextAppearance.AppCompat.Display2"></style>
+	<style name="VmDigitalTheme.TextAppearance.Display3" parent="TextAppearance.AppCompat.Display3"></style>
+	<style name="VmDigitalTheme.TextAppearance.Display4" parent="TextAppearance.AppCompat.Display4"></style>
+	<style name="VmDigitalTheme.TextAppearance.Headline" parent="TextAppearance.AppCompat.Headline"></style>
+	<style name="VmDigitalTheme.TextAppearance.Large" parent="TextAppearance.AppCompat.Large"></style>
+	<style name="VmDigitalTheme.TextAppearance.Title" parent="TextAppearance.AppCompat.Title"></style>
+	<style name="VmDigitalTheme.TextAppearance.Small" parent="TextAppearance.AppCompat.Small"></style>
+	<style name="VmDigitalTheme.TextAppearance.Medium" parent="TextAppearance.AppCompat.Medium"></style>
+	<style name="VmDigitalTheme.TextAppearance.Menu" parent="TextAppearance.AppCompat.Menu"></style>
+
 </resources>

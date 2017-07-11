@@ -13,7 +13,7 @@ public interface SourceContract {
 	}
 	
 	public interface Presenter extends VMPresenter{
-		void fatchSource();
+		void fetchSource();
 	}
 	
 }
