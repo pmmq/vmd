@@ -17,7 +17,7 @@ import vm.com.vmdigital.R;
 import vm.com.vmdigital.applications.bases.VMActivity;
 import vm.com.vmdigital.databinding.ActivityWebBinding;
 
-public class ArticleLinkActivity extends VMActivity {
+public class WebActivity extends VMActivity {
 
     public static final String URLKEY = "URLKEY";
 

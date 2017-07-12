@@ -3,9 +3,7 @@ package vm.com.vmdigital.fragments;
 import android.content.Intent;
 import android.databinding.ObservableArrayList;
 import android.databinding.ObservableBoolean;
-import android.databinding.ObservableList;
 import android.os.Bundle;
-import android.support.annotation.MainThread;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
@@ -15,12 +13,11 @@ import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
-import vm.com.vmdigital.activity.ArticleLinkActivity;
+import vm.com.vmdigital.activity.WebActivity;
 import vm.com.vmdigital.adapters.ArticleAdapter;
 import vm.com.vmdigital.applications.VMApplication;
 import vm.com.vmdigital.applications.VMManager;
@@ -143,8 +140,8 @@ public class FragmentArticles extends VMFragment implements ArticleContract.View
 
     @Override
     public void onItemSelect(Article object) {
-        Intent detailIntent = new Intent(getActivity(), ArticleLinkActivity.class);
-        detailIntent.putExtra(ArticleLinkActivity.URLKEY,object.getUrl());
+        Intent detailIntent = new Intent(getActivity(), WebActivity.class);
+        detailIntent.putExtra(WebActivity.URLKEY,object.getUrl());
         startActivity(detailIntent);
     }
 

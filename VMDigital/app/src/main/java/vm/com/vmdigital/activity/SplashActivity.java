@@ -85,7 +85,7 @@ public class SplashActivity extends VMActivity implements SourceContract.View {
 
     @Override
     protected void onStop() {
-        mSourcePresenter.onDetach();
         super.onStop();
+        mSourcePresenter.onDetach();
     }
 }

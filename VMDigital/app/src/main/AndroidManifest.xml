@@ -30,7 +30,7 @@
 
 		<activity
 			android:configChanges="orientation|screenSize"
-			android:name=".activity.ArticleLinkActivity"
+			android:name=".activity.WebActivity"
 			android:theme="@style/VmDigitalTheme.NoActionBar"/>
 	</application>
 

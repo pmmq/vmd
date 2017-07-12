@@ -26,6 +26,9 @@ android {
 	dataBinding{
 		enabled = true
 	}
+	testOptions {
+		unitTests.returnDefaultValues = true
+	}
 }
 
 dependencies {
@@ -39,6 +42,7 @@ dependencies {
 	compile 'com.android.support:design:25.3.1'
 	compile 'com.android.support.constraint:constraint-layout:1.0.2'
 	testCompile 'junit:junit:4.12'
+	testCompile "org.mockito:mockito-core:2.+"
 
 	// dagger 2
 	annotationProcessor 'com.google.dagger:dagger-compiler:2.7'

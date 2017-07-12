@@ -6,7 +6,7 @@
 
         <variable
             name="activity"
-            type="vm.com.vmdigital.activity.ArticleLinkActivity"/>
+            type="vm.com.vmdigital.activity.WebActivity"/>
 
     </data>
 

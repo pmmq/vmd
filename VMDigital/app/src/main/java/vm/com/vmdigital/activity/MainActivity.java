@@ -25,7 +25,6 @@ import vm.com.vmdigital.applications.bases.VMActivity;
 import vm.com.vmdigital.applications.events.SelectSourceEvent;
 import vm.com.vmdigital.applications.interfaces.AdapterContract;
 import vm.com.vmdigital.databinding.ActivityMainBinding;
-import vm.com.vmdigital.fragments.FragmentArticles;
 import vm.com.vmdigital.fragments.FragmentMainContainer;
 import vm.com.vmdigital.models.Source;
 
@@ -37,21 +36,20 @@ public class MainActivity extends VMActivity implements NavigationView.OnNavigat
     @Inject
     EventBus mEvent;
 
-    ActionBarDrawerToggle toggle;
-    ActivityMainBinding mainBinding;
+    ActivityMainBinding mBinding;
     SourceAdapter mSourceAdapter;
     boolean doubleBackToExitPressedOnce = false;
 
     @Override
     public boolean setupView(Bundle savedInstanceState) {
-        mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-        setSupportActionBar(mainBinding.toolbar);
-        toggle = new ActionBarDrawerToggle(this, mainBinding.drawerLayout, mainBinding.toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        mainBinding.drawerLayout.setDrawerListener(toggle);
+        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        setSupportActionBar(mBinding.toolbar);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mBinding.drawerLayout, mBinding.toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        mBinding.drawerLayout.setDrawerListener(toggle);
         toggle.syncState();
-        mainBinding.navView.setNavigationItemSelectedListener(this);
-        mainBinding.rvMenu.setLayoutManager(new LinearLayoutManager(this));
-        return mainBinding == null ? false : true;
+        mBinding.navView.setNavigationItemSelectedListener(this);
+        mBinding.rvMenu.setLayoutManager(new LinearLayoutManager(this));
+        return mBinding == null ? false : true;
     }
 
     @Override
@@ -63,19 +61,18 @@ public class MainActivity extends VMActivity implements NavigationView.OnNavigat
             mSourceAdapter.setAdapterContract(new AdapterContract<Source>() {
                 @Override
                 public void onItemSelect(Source object) {
-                    mainBinding.drawerLayout.closeDrawers();
+                    mBinding.drawerLayout.closeDrawers();
                     mEvent.post(new SelectSourceEvent(object));
                 }
             });
-
         }
         return true;
     }
 
     @Override
     public void update() {
-        mainBinding.rvMenu.setAdapter(mSourceAdapter);
-        attachFragment(FragmentMainContainer.newInstance(),mainBinding.contentContainer.container.getId());
+        mBinding.rvMenu.setAdapter(mSourceAdapter);
+        attachFragment(FragmentMainContainer.newInstance(), mBinding.contentContainer.container.getId());
     }
 
     @Override
@@ -102,13 +99,13 @@ public class MainActivity extends VMActivity implements NavigationView.OnNavigat
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
-        mainBinding.drawerLayout.closeDrawer(GravityCompat.START);
+        mBinding.drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onSelectSource(SelectSourceEvent event){
-        mainBinding.toolbar.setTitle(event.getSource().getName());
+        mBinding.toolbar.setTitle(event.getSource().getName());
     }
 
     @Override
